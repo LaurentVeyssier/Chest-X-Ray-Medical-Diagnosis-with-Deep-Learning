@@ -5,29 +5,36 @@ Diagnose 14 abnormalities on Chest X-Ray using Deep Learning. Perform diagnostic
 
 
 # Project Description
-This project is a complilation of several sub-projects from Coursera 3-course [IA for Medical Specialization](https://www.coursera.org/specializations/ai-for-medicine).
+This project is a complilation of several sub-projects from Coursera 3-course [IA for Medical Specialization](https://www.coursera.org/specializations/ai-for-medicine). The objective is to use a deep learning model to diagnose abnormalities from Chest X-Rays.
 
+The project uses a pretrained DenseNet-121 model able to diagnose 14 labels such as Cardiomegaly, Mass, Pneumothorax or Edema. In other words, this single model can provide binary classification predictions for each of the 14 labeled pathologies.
 
-dataset used....
+Weight normalization is performed to offset the low prevalence of the anomalies among the dataset of X-Rays (class imbalance).
 
-The objective is to use a deep learning model to diagnose abnormalities from Chest X-Rays.
-The project uses a pretrained DenseNet-121 model able to diagnose between 14 labels such as Cardiomegaly, Mass, Pneumothorax or Edema.
+Finally the GradCAM technique is used to highlight and visualize where the model is looking, which area of interest is used to make the prediction. This is a tool which can be helpful for discovery of markers, error analysis, and even in deployment.
 
-Weight normalization is performed to offset the low prevalence of the anomalies among the dataset of X-Rays.
+# Dataset
 
-Finally the GradCAM technique is used to highlight and visualize where the model is looking, whhat is the area of interest used to make the prediction. This is a tool which can be helpful for discovery of markers, error analysis, and even in deployment.
+The project uses chest x-ray images taken from the public [ChestX-ray8 dataset](https://arxiv.org/abs/1705.02315). This dataset contains 108,948 frontal-view X-ray images of 32,717 unique patients. Each image in the data set contains multiple text-mined labels identifying 14 different pathological conditions.
+These in turn can be used by physicians to diagnose 8 different diseases.
+For the project we have been working with a ~1000 image subset of the images.
+- 875 images from our dataset to be used for training.
+- 109 images from our dataset to be used for validation.
+- 420 images from our dataset to be used for testing.
+The dataset includes a CSV file that provides the ground truth labels for each X-ray.
 
 # DenseNet highlights
 
-
-!![](asset/00025288_001.png)   ![](asset/predictions.png)
+!![](asset/00025288_001.png)
+![](asset/predictions.png)
 
 # Environment and dependencies
 In order to run the model, I used an environment with tensorflow 1.15.0 and Keras 2.1.6.
 
 # Results
-I used a pre-trained model which performance can be evaluated using the ROC curve below. The best results are achieved for Cardiomegaly (0.9), Edema (0.86) and Mass (0.82).
-Looking at unseen X-Rays, the model correctly predicts the predominant abnormality, generating a somehow accurate diagnotic and highlight accurately the key region of interest.
+I used a pre-trained model which performance can be evaluated using the ROC curve shown at the bottom. The best results are achieved for Cardiomegaly (0.9 AUC), Edema (0.86) and Mass (0.82). Ideally we want to be significantly closer to 1.
+
+Looking at unseen X-Rays, the model correctly predicts the predominant abnormality, generating a somehow accurate diagnotic, highlighting accurately the key region of interest. In addition to its main diagnostic, the model also predicts secondary issues similarly to what a radiologist would comment as part of his analysis. 
 
 ![](asset/result1.png)
 
