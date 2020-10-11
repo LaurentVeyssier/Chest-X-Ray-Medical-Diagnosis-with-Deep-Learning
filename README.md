@@ -28,7 +28,8 @@ The dataset includes a CSV file that provides the ground truth labels for each X
 
 DenseNet was introduced in 2017 in an award-winning paper by Gao Huang et al. 2018 called [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf). The model was able to outperform previous architectures like ResNet (which I covered in a another project [Skin Cancer AI dermatologist](https://github.com/LaurentVeyssier/Skin-Cancer-Classifier-Dermatologist-AI)).
 
-Regardless of the architectural designs of these networks, they all try to create channels for information to flow between the initial layers and the final layers. DenseNet, with the same objective, create paths between the layers of the network. Parts of this summary are can be found in this [review](https://towardsdatascience.com/paper-review-densenet-densely-connected-convolutional-networks-acf9065dfefb). 
+Regardless of the architectural designs of these networks, they all try to create channels for information to flow between the initial layers and the final layers. DenseNet, with the same objective, create paths between the layers of the network. Parts of this summary are can be found in this [review](https://towardsdatascience.com/paper-review-densenet-densely-connected-convolutional-networks-acf9065dfefb).
+
 ![](asset/densenet.png)
 
 - DenseNet key novelty:
