@@ -5,11 +5,11 @@ Diagnose 14 abnormalities on Chest X-Ray using Deep Learning. Perform diagnostic
 
 
 # Project Description
-This project is a complilation of several sub-projects from Coursera 3-course [IA for Medical Specialization](https://www.coursera.org/specializations/ai-for-medicine). The objective is to use a deep learning model to diagnose abnormalities from Chest X-Rays.
+This project is a complilation of several sub-projects from Coursera 3-course [IA for Medical Specialization](https://www.coursera.org/specializations/ai-for-medicine). The objective is to use a deep learning model to diagnose pathologies from Chest X-Rays.
 
 The project uses a pretrained DenseNet-121 model able to diagnose 14 labels such as Cardiomegaly, Mass, Pneumothorax or Edema. In other words, this single model can provide binary classification predictions for each of the 14 labeled pathologies.
 
-Weight normalization is performed to offset the low prevalence of the anomalies among the dataset of X-Rays (class imbalance).
+Weight normalization is performed to offset the low prevalence of the abnormalities among the dataset of X-Rays (class imbalance).
 
 Finally the GradCAM technique is used to highlight and visualize where the model is looking, which area of interest is used to make the prediction. This is a tool which can be helpful for discovery of markers, error analysis, and even in deployment.
 
