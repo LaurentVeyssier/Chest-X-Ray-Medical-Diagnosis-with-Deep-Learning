@@ -36,8 +36,6 @@ For a detailed explanation of Densenet, check out the source of the image above,
 
 320x320
 
-!![](asset/00025288_001.png)
-
 ![](asset/predictions.png)
 
 # Environment and dependencies
