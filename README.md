@@ -36,16 +36,17 @@ Densenet is a convolutional network where each layer is connected to all other l
 
 Each layer in a dense block receives feature maps from all the preceding layers, and passes its output to all subsequent layers. Feature maps received from other layers are fused through concatenation, and not through summation (like in ResNets). Extracted feature maps are continuously added together with previous ones which avoids redundant and duplicate work.
 ![](asset/dense_connection.gif)
+
 This allows the network to re-use learned information and be more efficient. Such networks require fewer layers. State of the art results are achieved with as low as 12 channel feature maps. This also means the network has fewer parameters to learn and is therefore easier to train. 
 Amongst all variants, DenseNet-121 is the standard one. 
 
 ![](asset/variants.png)
 
 Key contributions of the DenseNet architecture:
-•	Alleviates vanishing gradient problem ( as networks get deeper, gradients aren’t back-propagated sufficiently to the initial layers of the network. The gradients keep getting smaller as they move backwards into the network and as a result, the initial layers lose their capacity to learn the basic low-level features)
-•	Stronger feature propagation
-•	Feature re-use
-•	Reduced parameter count
+- Alleviates vanishing gradient problem ( as networks get deeper, gradients aren’t back-propagated sufficiently to the initial layers of the network. The gradients keep getting smaller as they move backwards into the network and as a result, the initial layers lose their capacity to learn the basic low-level features)
+- Stronger feature propagation
+- Feature re-use
+- Reduced parameter count
 
 # DenseNet architecture
 
