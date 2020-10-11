@@ -77,6 +77,8 @@ In between dense blocks, you find Transition layer. Instead of summing the resid
 A transition layer is made of: Batch Normalization -> 1x1 Convolution -> Average pooling.
 Transition layers between two dense blocks ensure the down-sampling role (x and y dimensions halved), essential to CNN. Transition layers also compress the feature map and reduce the channels by half. This contributes to the compactness of the network.
 
+![](asset/concat.png)
+
 Although Concatenating generates a lot of input channels, DenseNet’s convolution generates a low number of feature maps (The authors recommend 32 for optimal performance but world-class performance was achieved with only 12 output channels).
 
 Key benefits:
