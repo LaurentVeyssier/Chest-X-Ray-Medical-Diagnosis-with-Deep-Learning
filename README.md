@@ -50,7 +50,7 @@ Key contributions of the DenseNet architecture:
 
 # DenseNet architecture
 
-DenseNet is composed of Dense blocks. In those blocks, the layers are densely connected together: Each layer receive in input all previous layers output feature maps.
+DenseNet is composed of Dense blocks. In those blocks, the layers are densely connected together: Each layer receive in input all previous layers output feature maps. The DenseNet-121 comprises 4 dense blocks, which themselves comprise 6 to 24 dense layers.
 -	Dense block: 
 A dense block comprises n dense layers. These dense layers are connected such that each dense layer receives feature maps from all preceding layers and passes it’s feature maps to all subsequent layers. The dimensions of the features (width, height) stay the same in a dense block.
 
@@ -58,27 +58,23 @@ A dense block comprises n dense layers. These dense layers are connected such th
 
 -	Dense layer: 
 Each dense-layer consists of 2 convolutional operations -
-- 1 X 1 CONV (conventional conv operation for extracting features)
-- 3 X 3 CONV (bringing down the feature depth/channel count)
+  - 1 X 1 CONV (conventional conv operation for extracting features)
+  - 3 X 3 CONV (bringing down the feature depth/channel count)
 
 ![](asset/dense_layer.png)
 
-The  CONV layer in the table corresponds to the sequence BatchNorm→ReLU→Conv. A layer has each sequence repeated twice, the first with 1x1 Convolution bottleneck producing: grow rate x 4 feature maps, the second with 3x3 convolution. The authors found that the pre-activation mode (BN and ReLU before the Conv) was more efficient than the usual post-activation mode.
-The growth rate (k= 32 for DenseNet-121) defines the number of output feature maps of a layer. Basically the layers output 32 feature maps which are added to a number of 32 feature maps from previous layers. While the depth increases continuously, each layer bring back the depth to 32.
-![](asset/features_maps.png)
-The DenseNet-121 comprises 4 dense blocks, which themselves comprise 6 to 24 dense layers. 
+The  CONV layer corresponds to the sequence BatchNorm->ReLU->Conv. A layer has each sequence repeated twice, the first with 1x1 Convolution bottleneck producing: grow rate x 4 feature maps, the second with 3x3 convolution. The authors found that the pre-activation mode (BN and ReLU before the Conv) was more efficient than the usual post-activation mode.
 
--	Transition layer
-In between dense blocks, you find Transition layer.
-Instead of summing the residual like in ResNet, DenseNet concatenates all the feature maps.
-In each dense block, the feature maps of each layer has the same size.
-Transition layers between two dense blocks assure the down-sampling role (x and y dimensions halved), essential to CNN.
-A transition layer is made of:
-1.	Batch Normalization
-2.	1x1 Convolution
-3.	Average pooling
+The growth rate (k= 32 for DenseNet-121) defines the number of output feature maps of a layer. Basically the layers output 32 feature maps which are added to a number of 32 feature maps from previous layers. While the depth increases continuously, each layer bring back the depth to 32.
+
+![](asset/features_maps.png)
+
+-	Transition layer: 
+In between dense blocks, you find Transition layer. Instead of summing the residual like in ResNet, DenseNet concatenates all the feature maps.
+A transition layer is made of: Batch Normalization -> 1x1 Convolution -> Average pooling.
+Transition layers between two dense blocks ensure the down-sampling role (x and y dimensions halved), essential to CNN. Transition layers also compress the feature map and reduce the channels by half. This contributes to the compactness of the network.
+
 Although Concatenating generates a lot of input channels, DenseNet’s convolution generates a low number of feature maps (The authors recommend 32 for optimal performance but world-class performance was achieved with only 12 output channels).
-Transition layers compress the feature map and reduce the channels by half. This contributes to the compactness of the network.
 
 Key benefits:
 -	Compactness. DenseNet-201 with 20M parameters yields similar validation error as a 101-layer ResNet with 45M parameters.
