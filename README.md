@@ -30,7 +30,7 @@ Densenet is a convolutional network where each layer is connected to all other l
 - The first layer is connected to the 2nd, 3rd, 4th etc.
 - The second layer is connected to the 3rd, 4th, 5th etc.
 
-!![](asset/densenet.png)
+![](asset/densenet.png)
 
 For a detailed explanation of Densenet, check out the source of the image above, a paper by Gao Huang et al. 2018 called [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf).
 
