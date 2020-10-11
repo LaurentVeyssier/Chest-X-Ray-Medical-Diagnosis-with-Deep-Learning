@@ -26,7 +26,7 @@ The dataset includes a CSV file that provides the ground truth labels for each X
 
 # DenseNet highlights
 
-DenseNet was introduced in 2017 in an award-winning paper by Gao Huang et al. 2018 called [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf). The model was able to outperform previous architectures like ResNet (which I covered in a previous project xxxxx). Regardless of the architectural designs of these networks, they all try to create channels for information to flow between the initial layers and the final layers. DenseNet, with the same objective, create paths between the layers of the network.
+DenseNet was introduced in 2017 in an award-winning paper by Gao Huang et al. 2018 called [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf). The model was able to outperform previous architectures like ResNet (which I covered in a previous project xxxxx). Regardless of the architectural designs of these networks, they all try to create channels for information to flow between the initial layers and the final layers. DenseNet, with the same objective, create paths between the layers of the network. Parts of this summary are can be found in this [review](https://towardsdatascience.com/paper-review-densenet-densely-connected-convolutional-networks-acf9065dfefb). 
 ![](asset/densenet.png)
 
 - DenseNet key novelty:
@@ -53,12 +53,14 @@ Key contributions of the DenseNet architecture:
 DenseNet is composed of Dense blocks. In those blocks, the layers are densely connected together: Each layer receive in input all previous layers output feature maps.
 -	Dense block: 
 A dense block comprises n dense layers. These dense layers are connected such that each dense layer receives feature maps from all preceding layers and passes it’s feature maps to all subsequent layers. The dimensions of the features (width, height) stay the same in a dense block.
+
 ![](asset/dense_block.png)
 
 -	Dense layer: 
 Each dense-layer consists of 2 convolutional operations -
 - 1 X 1 CONV (conventional conv operation for extracting features)
 - 3 X 3 CONV (bringing down the feature depth/channel count)
+
 ![](asset/dense_layer.png)
 
 The  CONV layer in the table corresponds to the sequence BatchNorm→ReLU→Conv. A layer has each sequence repeated twice, the first with 1x1 Convolution bottleneck producing: grow rate x 4 feature maps, the second with 3x3 convolution. The authors found that the pre-activation mode (BN and ReLU before the Conv) was more efficient than the usual post-activation mode.
