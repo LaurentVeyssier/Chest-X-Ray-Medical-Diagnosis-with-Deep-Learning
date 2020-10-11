@@ -60,7 +60,7 @@ A dense block comprises n dense layers. These dense layers are connected such th
 ![](asset/dense_block.png)
 
 -	Dense layer: 
-Each dense-layer consists of 2 convolutional operations -
+Each dense-layer consists of 2 convolutional operations.
   - 1 X 1 CONV (conventional conv operation for extracting features)
   - 3 X 3 CONV (bringing down the feature depth/channel count)
 
