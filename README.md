@@ -18,13 +18,14 @@ Finally the GradCAM technique is used to highlight and visualize where the model
 The project uses chest x-ray images taken from the public [ChestX-ray8 dataset](https://arxiv.org/abs/1705.02315). This dataset contains 108,948 frontal-view X-ray images of 32,717 unique patients. Each image in the data set contains multiple text-mined labels identifying 14 different pathological conditions.
 These in turn can be used by physicians to diagnose 8 different diseases.
 For the project we have been working with a ~1000 image subset of the images.
-- 875 images from our dataset to be used for training.
-- 109 images from our dataset to be used for validation.
-- 420 images from our dataset to be used for testing.
+- 875 images to be used for training.
+- 109 images to be used for validation.
+- 420 images to be used for testing.
+
 The dataset includes a CSV file that provides the ground truth labels for each X-ray.
 
 # DenseNet highlights
-
+320x320
 !![](asset/00025288_001.png)
 ![](asset/predictions.png)
 
