@@ -11,7 +11,7 @@ The project uses a pretrained DenseNet-121 model able to diagnose 14 labels such
 
 Weight normalization is performed to offset the low prevalence of the abnormalities among the dataset of X-Rays (class imbalance).
 
-Finally the GradCAM technique is used to highlight and visualize where the model is looking, which area of interest is used to make the prediction. This is a tool which can be helpful for discovery of markers, error analysis, and even in deployment.
+Finally the GradCAM technique is used to highlight and visualize where the model is looking, which area of interest is used to make the prediction. This is a tool which can be helpful for discovery of markers, error analysis, training and even in deployment.
 
 # Dataset
 
