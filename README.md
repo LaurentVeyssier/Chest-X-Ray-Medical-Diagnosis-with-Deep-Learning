@@ -33,6 +33,7 @@ DenseNet was introduced in 2017 in an award-winning paper by Gao Huang et al. 20
 Densenet is a convolutional network where each layer is connected to all other layers that are deeper in the network
   - The first layer is connected to the 2nd, 3rd, 4th etc.
   - The second layer is connected to the 3rd, 4th, 5th etc.
+
 Each layer in a dense block receives feature maps from all the preceding layers, and passes its output to all subsequent layers. Feature maps received from other layers are fused through concatenation, and not through summation (like in ResNets). Extracted feature maps are continuously added together with previous ones which avoids redundant and duplicate work.
 ![](asset/dense_connection.gif)
 This allows the network to re-use learned information and be more efficient. Such networks require fewer layers. State of the art results are achieved with as low as 12 channel feature maps. This also means the network has fewer parameters to learn and is therefore easier to train. 
