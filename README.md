@@ -83,8 +83,8 @@ Although Concatenating generates a lot of input channels, DenseNet’s convoluti
 
 Key benefits:
 -	Compactness. DenseNet-201 with 20M parameters yields similar validation error as a 101-layer ResNet with 45M parameters.
--	The learned features non-redundant as they are all shared through a common knowledge. 
--	Easier to train because deep network with the dense connections because the gradient is flowing back more easily thanks to the short connections.
+-	The learned features are non-redundant as they are all shared through a common knowledge. 
+-	Easier to train because the gradient is flowing back more easily thanks to the short connections.
 
 # Model settings
 
